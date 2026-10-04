@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MY MUSE — Beauty Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar"><a class="brand" href="index.html"><span>✿</span> MY MUSE</a><nav><a href="index.html">Home</a><a class="active" href="explore.html">Explore</a><a href="mylooks.html">My Looks</a><a class="active" href="guide.html">Beauty Guide</a><a href="profile.html">Profile</a></nav><div class="nav-icons"><button>⌕</button><button>♡</button><button class="avatar">J</button></div></header>
+<main class="guide-page container">
+  <div class="breadcrumb">← Explore / Cherry Blossom Glow</div>
+  <section class="guide-hero">
+    <img src="https://images.unsplash.com/photo-1496440737103-cd596325d314?auto=format&fit=crop&w=1000&q=85" alt="">
+    <div>
+      <p class="eyebrow">MAKEUP GUIDE · A SOFT KIND OF GLOW</p><h1>Cherry Blossom Glow</h1>
+      <p>Petal-pink cheeks, softly defined eyes and a fresh, luminous base. A delicate Korean-inspired look that lets your skin feel like skin.</p>
+      <div class="mini-stats"><span>◷<b>20 minutes</b><small>Take your time</small></span><span>✣<b>Beginner friendly</b><small>Soft, buildable layers</small></span><span>☷<b>9 steps</b><small>From prep to finish</small></span></div>
+      <div class="palette"><small>THE COLOR STORY</small><i></i><i></i><i></i><i></i></div>
+      <div class="guide-tip">✣ &nbsp; <b>A little guidance for your profile</b><br>Combination skin: keep glow on the cheeks, powder the T-zone. For uneven tone, conceal only where you want coverage. Cool summer: choose muted, blue-based pinks.</div>
+      <div class="actions"><button class="btn pink" id="saveGuide">Saved to My Looks ♡</button><a class="btn white" href="#steps">Start the guide ↓</a></div>
+    </div>
+  </section>
+
+  <section id="steps" class="guide-content">
+    <div><p class="eyebrow">THE STEP-BY-STEP RITUAL</p><h2>A soft glow, one layer at a time.</h2><p class="muted">Nine thoughtful steps. Follow along, adapt as you go, and leave room for you.</p></div>
+    <div id="stepList"></div>
+    <div class="journal-box"><small>YOUR LOOK, YOUR LITTLE STORY</small><h2>How did you make it yours?</h2><p>Remember the shade you loved, the technique that worked, or what you'd move next time.</p><button class="btn pink">Add a journal note ✎</button></div>
+  </section>
+</main>
+<script>
+const steps = [
+["Skin Prep","A comfortable, hydrated canvas","On clean skin, press in a light moisturizer and apply your usual sunscreen. Let each layer settle before makeup.","Dry skin: add a little more moisturizer to dry patches. Combination or oily skin: keep richer layers off the T-zone."],
+["Base","Sheer coverage, skin-like glow","Dot a sheer base at the center of the face and blend outward with a damp sponge or brush. Press rather than drag.","For texture, use less base and gentle pressing motions. On combination skin, skip extra glow on the nose and forehead."],
+["Concealer","Small corrections, not a mask","Place a tiny amount at the inner under-eye corner and on spots or uneven areas you want to soften. Wait a few seconds, then tap the edges.","For uneven tone, use a shade close to your base. Build coverage slowly rather than covering the whole face."],
+["Blush","The signature petal-pink flush","Tap a little cool pink cream blush onto the upper apples of your cheeks. Blend outward toward the temples with a sponge or fingers.","Cool summer: choose muted rose or blue-based pink. For deeper skin, use a richer rose with the same sheer finish."],
+["Contour","Quiet definition","With a light hand, sweep a neutral contour just beneath the cheekbones and blend upward. Keep the edges diffused.","If your skin gets oily, choose a soft matte formula and use a little less on areas that become shiny."],
+["Eye Makeup","Rose-tea eyes, softly lifted lashes","Wash a muted rose-taupe shadow across the lid and blend the crease. Add a little soft brown at the outer corner. Trace a thin brown line close to the lash line.","For hooded lids, blend with eyes open and keep color just above the fold. Cool summer: rosy taupe works beautifully."],
+["Highlight","A soft glow, never glittery","Tap a fine, pearly highlight onto the high points of the cheekbones. Blend until the edges disappear.","For visible texture, keep shimmer small and smooth areas easy. For oily skin, choose a soft pearl rather than a glittery finish."],
+["Lip","A sheer rose, softly blurred","Apply a light balm and blot excess. Tap a sheer rose tint into the center of the lips, then soften outward.","Cool summer: try a muted rosy pink. For drier lips, choose a comfortable balm finish rather than a drying stain."],
+["Setting","Keep the glow where you want it","Use a small fluffy brush to press a whisper of translucent powder around the nose, center forehead and chin. Leave the cheeks fresh.","Oily or combination skin: powder selectively, then blot before adding more. Check the finish in daylight."]
+];
+const list=document.getElementById("stepList");
+steps.forEach((s,i)=>list.innerHTML+=`<article class="step"><div class="step-no">${String(i+1).padStart(2,"0")}</div><div><h3>${s[0]}</h3><b>${s[1]}</b><p>${s[2]}</p><div class="make-it"><small>MAKE IT YOURS</small><br>${s[3]}</div></div><time>${i<3?3:i<5?2: i<7?1:2} min</time></article>`);
+document.getElementById("saveGuide").onclick=()=>{document.getElementById("saveGuide").textContent="Saved ✓"; localStorage.setItem("savedLook","Cherry Blossom Glow");};
+</script>
+</body></html>
